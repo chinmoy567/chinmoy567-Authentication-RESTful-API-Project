@@ -1,3 +1,4 @@
+// core modules
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
@@ -18,8 +19,8 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   is_verified: {
-    type: String,
-    required: true,
+    type: Number,
+    default: 0,
   },
   image: {
     type: String,

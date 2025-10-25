@@ -1,8 +1,15 @@
+// Core modules
 const express = require('express');
-const router = express.Router();
+
 const path = require('path');
 const multer = require('multer');
-router.use(express.json());
+
+const userRouter = express.Router();
+userRouter.use(express.json());
+
+
+// External modules
+const userController = require("../controllers/userController");
 
 
 
@@ -16,7 +23,15 @@ const storage = multer.diskStorage({
         cb(null, name);
     }
 });
-
 const upload = multer({ storage: storage }); 
 
-module.exports = upload;
+
+
+// UserRouters
+
+userRouter.post("/register",upload.single("image"),userController.userRegister);
+
+
+
+
+module.exports = userRouter;
