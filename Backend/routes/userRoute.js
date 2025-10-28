@@ -10,7 +10,7 @@ userRoute.use(express.json());
 
 // External modules
 const userController = require("../controllers/userController");
-const { registerValidator } = require("../helpers/validation");
+const {registerValidator,sendMailVerificationValidator,} = require("../helpers/validation");
 
 
 
@@ -47,7 +47,7 @@ const upload = multer({
 
 // UserRoutes
 userRoute.post("/register",upload.single("image"),registerValidator,userController.userRegister);
-
+userRoute.post("/send-mail-verification", sendMailVerificationValidator,userController.sendMailVerification);
 
 
 

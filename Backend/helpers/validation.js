@@ -1,5 +1,7 @@
 const { check } = require("express-validator");
 
+
+//registerValidator
 exports.registerValidator = [
   // 1. Name Validation
   check("name", "Name is required").not().isEmpty(),
@@ -37,4 +39,12 @@ exports.registerValidator = [
       }
     })
     .withMessage("Please upload an image Jpeg, PNG"),
+];
+
+
+//sendMailVerificationValidator
+exports.sendMailVerificationValidator = [
+  check("email", "Please include a valid email")
+    .isEmail()
+    .normalizeEmail({ gmail_remove_dots: true }),
 ];
