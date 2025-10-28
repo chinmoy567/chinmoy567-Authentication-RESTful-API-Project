@@ -6,10 +6,17 @@ const mongoose = require("mongoose");
 
 // External modules
 const userRoute = require("./routes/userRoute");
+const authRoute = require("./routes/authRoute");
 
 
 const app = express();
 const port = process.env.SERVER_PORT;
+
+//for views
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
+
 
 // MongoDB Connection
 mongoose
@@ -21,6 +28,7 @@ mongoose
 
 // Middlewares
 app.use("/api", userRoute);
+app.use("/", authRoute);
 
 
 // Start the server
