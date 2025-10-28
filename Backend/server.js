@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 
 // External modules
-const userRoute = require("./routes/userRouter");
+const userRoute = require("./routes/userRoute");
 
 
 const app = express();
